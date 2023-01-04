@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Music Go</title>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <style>
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+html{
+    font-size: 55%;
+}
+.header-1{
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(to right, rgb(134, 44, 212), rgb(94, 0, 128));
+    color: white;
+    font-weight: 500;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.nav{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 3rem 0rem;
+    justify-content: space-around;
+}
+.head-1{
+    font-size: 3.8rem;
+    color: transparent;
+    -webkit-background-clip: text;
+    background-image: linear-gradient(to right, rgb(16, 94, 202), rgb(15, 221, 63), rgb(255, 32, 154),rgb(211, 201, 16));
+}
+.menu-icon{
+    width: 5rem;
+    height: 5rem;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    gap: 0.6rem;
+    flex-direction: column;
+    box-shadow: 0px 0px 12rem 3rem white;
+}
+.icon{
+    width: 60%;
+    height: 0.3rem;
+    background: black;
+    transition: 0.4s;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border-radius: 1rem;
+}
+.icon:nth-child(1){
+    top: 30%;
+}
+.icon:nth-child(2){
+    top: 50%;
+}
+.icon:nth-child(3){
+    top: 70%;
+}
+.anime .icon:nth-child(1){
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%) rotate(-135deg);
+    transition: 0.4s;
+}
+.anime .icon:nth-child(3){
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%) rotate(135deg);
+    transition: 0.4s;
+}
+.anime .icon:nth-child(2){
+    width: 0;
+    transition: 0.4s;
+}
+.menu{
+    width: 32rem;
+    height: 40rem;
+    background: white;
+    position: absolute;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-right: 25rem;
+    box-shadow: 0px 0px 3rem 0px black;
+    border-radius: 0.7rem;
+    transform: translateY(-150%);
+    display: none;
+    color: black;
+}
+.anime-2{
+    transform: translateY(0);
+    display: flex;
+    opacity: 1;
+}
+.no-love, .paro, .hey-mama, .unstoppable{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 1rem 1.5rem;
+    margin: 1rem 0.6rem;
+    border-radius: 20px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+.no-love:hover, .paro:hover, .hey-mama:hover, .unstoppable:hover{
+    background-color: rgb(227, 217, 217);
+    transition: 0.3s;
+}
+.paro{
+    gap: 3rem;
+}
+.no-love img, .paro img, .unstoppable img, .hey-mama img{
+    border-radius: 50%;
+    width: 6rem;
+    height: 6rem;
+}
+.no-love h1, .paro h1, .unstoppable h1, .hey-mama h1{
+    font-size: 1.8rem;
+}
+
+.main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 70px;
+}
+.section-1{
+    background: rgb(134, 44, 212), rgb(94, 0, 128);
+    box-shadow: 0px 0px 10rem 0px rgb(78, 15, 84);
+    border-radius: 2rem;
+    height: 55rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 40rem;
+    padding: 5rem 0rem;
+}
+.img{
+    width: 20rem;
+    height: 20rem;
+    border-radius: 50%;
+    border: 8px solid rgb(232, 31, 115);
+    box-shadow: 0px 0px 2rem 0px rgb(232, 31, 115);
+}
+.title{
+    font-size: 3rem;
+    font-weight: bold;
+    color: transparent;
+    -webkit-background-clip: text;
+    background-image: linear-gradient(to right, rgb(171, 236, 141), rgb(232, 31, 115), rgb(150, 236, 141))
+}
+.range-bar{
+    width: 30rem;
+    height: 0.7rem;
+    background: #aaa;
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px 0px #aaa;
+}
+.range{
+    background: rgb(232, 31, 115);
+    width: 0%;
+    height: 100%;
+    border-radius: 20px;
+    transition: 0.3s;
+    box-shadow: 0px 0px 10px 0px rgb(232, 31, 115);
+}
+.icons ion-icon{
+    font-size: 6rem;
+    transition: 0.3s;
+}
+.icons{
+    display: flex;
+    gap: 2rem;
+}
+.icons ion-icon:hover{
+    border-radius: 50%;
+    background: white;
+    color: rgb(232, 31, 115);
+    transition: 0.3s;
+    box-shadow: 0px 0px 1.5rem 5px rgb(232, 31, 115);
+}
+.pause{
+    display: none;
+}
+.anime-3{
+    animation: spin 5s ease-in-out infinite;
+}
+@keyframes spin {
+    0%{
+        transform: rotate(-360deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+.anime-4{
+    z-index: 1;
+}
+
+
+/* responsive part */
+@media only screen and (max-width:1180px){
+    html{
+        font-size: 50%;
+    }
+    .menu{
+        margin-right: 20rem;
+    }
+}
+@media only screen and (max-width:900px){
+    html{
+        font-size: 45%;
+    }
+}
+@media only screen and (max-width:700px){
+    html{
+        font-size: 40%;
+    }
+    .menu{
+        margin-right: 12rem;
+    }
+}
+@media only screen and (max-width:400px){
+    html{
+        font-size: 38%;
+    }
+    .menu{
+        margin-right: 5rem;
+    }
+}
+@media only screen and (max-width:300px){
+    html{
+        font-size: 32%;
+    }
+}
+@media only screen and (max-width:250px){
+    html{
+        font-size: 27%;
+    }
+}
+
+
+
+    </style>
+</head>
+<body>
+    
+    <header class="header-1">
+        <nav class="nav">
+            <h1 class="head-1">Music Studio</h1>
+            <div class="menu-icon">
+                <div class="icon"></div>
+                <div class="icon"></div>
+                <div class="icon"></div>
+            </div>
+        </nav>
+        <div class="menu">
+            <div class="no-love">
+                <img src="images (2).jfif" alt="">
+                <h1>No Love Shubh Remix</h1>
+            </div><hr>  
+            <div class="paro">
+                <img src="s.jfif" alt="">
+                <h1>Serena Safari Lyrics</h1>
+            </div><hr>
+            <div class="hey-mama">
+                <img src="b.jfif" alt="">
+                <h1>Brown Munde 8D Song</h1>
+            </div><hr>
+            <div class="unstoppable">
+                <img src="f.jfif" alt="">
+                <h1>Fi Ha Arabic Song Full</h1>
+            </div>
+        </div>
+
+            <main class="main">
+                <section class="section-1">
+                        <img src="images (2).jfif" alt="" width="300px" height="300px" class="img">
+                        <h1 class="title">No Love Shubh Remix</h1>
+                        <audio src="No_Love_-_Shubh_(Remix)_Thiarajxtt__Shubh_Latest_Song_2022__Devill_&_Pind_Nation(256k).mp4" class="audio-1"></audio>
+                        <audio src="Serena_-_Safari_(Lyrics)(256k).mp4" class="audio-2"></audio>
+                        <audio src="Brown_Munde_(8D)(Use_Headphone)_AP_Dhillon__Latest_Punjabi_Song_2020__SAINI_SAAB_PRODUCTION(256k).mp4" class="audio-3"></audio>  
+                        <audio src="Fi_Ha___Remix___Jarico___BassBoosted___ZAF_STUDIO(256k)" class="audio-4"></audio>
+                        <div class="range-bar"><div class="range"></div></div>
+                        <div class="icons">
+                            <ion-icon name="arrow-back-circle-outline" class="back"></ion-icon>
+                            <ion-icon name="play-circle-outline" class="play"></ion-icon>
+                            <ion-icon name="pause-circle-outline" class="pause"></ion-icon>
+                            <ion-icon name="arrow-forward-circle-outline" class="next"></ion-icon>
+                        </div>
+                </section>
+            </main>
+
+    </header>
+
+
+    <script>
+
+        const menu_icon = document.querySelector(".menu-icon");
+        const menu = document.querySelector(".menu");
+
+        menu_icon.addEventListener('click', () => {
+            menu_icon.classList.toggle("anime");
+            menu.classList.toggle("anime-2");
+            menu.classList.toggle("anime-4");
+        });
+
+    </script>
+
+    <script>
+
+        const play = document.querySelector(".play")
+        const pause = document.querySelector(".pause")
+        const audio_1 = document.querySelector(".audio-1")
+        const audio_2 = document.querySelector(".audio-2")
+        const audio_3 = document.querySelector(".audio-3")
+        const audio_4 = document.querySelector(".audio-4")
+        const range = document.querySelector(".range")
+        const range_bar = document.querySelector(".range-bar")
+        const image = document.querySelector(".img")
+        const next = document.querySelector(".next")
+        const back = document.querySelector(".back")
+        const title = document.querySelector(".title")
+        const no_love = document.querySelector(".no-love")
+        const paro = document.querySelector(".paro")
+        const unstoppable = document.querySelector(".unstoppable")
+        const hey_mama = document.querySelector(".hey-mama")
+        // const timing = document.querySelector(".timing")
+        // const current = document.querySelector(".current")
+        // const duration = document.querySelector(".duration")
+        
+        play.addEventListener('click', () => {
+            play.style.display = "none";
+            pause.style.display = "block";
+            audio_1.play();
+            image.classList.add("anime-3")
+        })
+
+        pause.addEventListener("click", () => {
+            play.style.display = "block";
+            pause.style.display = "none";
+            audio_1.pause();
+            image.classList.remove("anime-3")
+        })
+
+        audio_1.addEventListener("timeupdate", () => {
+            range.style.width = (audio_1.currentTime*100/audio_1.duration)+"%";
+        })
+        audio_2.addEventListener("timeupdate", () => {
+            range.style.width = (audio_2.currentTime*100/audio_2.duration)+"%";
+        })
+        audio_3.addEventListener("timeupdate", () => {
+            range.style.width = (audio_3.currentTime*100/audio_3.duration)+"%";
+        })
+        audio_4.addEventListener("timeupdate", () => {
+            range.style.width = (audio_4.currentTime*100/audio_4.duration)+"%";
+        })
+
+        range_bar.addEventListener("click" , (e) => {
+            audio_1.currentTime = ((e.offsetX/range_bar.offsetWidth)*audio_1.duration);
+        })
+        range_bar.addEventListener("click" , (e) => {
+            audio_2.currentTime = ((e.offsetX/range_bar.offsetWidth)*audio_2.duration);
+        })
+        range_bar.addEventListener("click" , (e) => {
+            audio_3.currentTime = ((e.offsetX/range_bar.offsetWidth)*audio_3.duration);
+        })
+        range_bar.addEventListener("click" , (e) => {
+            audio_4.currentTime = ((e.offsetX/range_bar.offsetWidth)*audio_4.duration);
+        })
+
+
+        const songs = [
+            {
+                title: "No Love Shubh Remix",
+                audio_1: "No_Love_-_Shubh_(Remix)_Thiarajxtt__Shubh_Latest_Song_2022__Devill_&_Pind_Nation(256k)",
+                image: "images (2)"
+            },
+            {
+                title: "Serena Safari Lyrics",
+                audio_1: "Serena_-_Safari_(Lyrics)(256k)",
+                image: "s"
+            },
+            {
+                title: "Brown Munde 8D Song",
+                audio_1: "Brown_Munde_(8D)(Use_Headphone)_AP_Dhillon__Latest_Punjabi_Song_2020__SAINI_SAAB_PRODUCTION(256k)",
+                image: "b"
+            },
+            {
+                title: "Fi Ha Arabic Song Full",
+                audio_1: "Fi_Ha___Remix___Jarico___BassBoosted___ZAF_STUDIO(256k) - Copy",
+                image: "f" 
+            }
+        ];
+        
+        const loadsongs = (songs) => {
+            title.textContent = songs.title;
+            audio_1.src = (songs.audio_1+".mp4");
+            image.src = (songs.image+".jfif");
+        }
+
+        songindex = 0;
+
+        const nextsong = () => {
+            songindex++;
+            loadsongs(songs[songindex]);
+            play.style.display = "none";
+            pause.style.display = "block";
+            audio_1.play();
+            image.classList.add("anime-3")
+            range.style.width = "0%";
+        }
+        const prevsong = () => {
+            songindex--;
+            loadsongs(songs[songindex]);
+            play.style.display = "none";
+            pause.style.display = "block";
+            audio_1.play();
+            image.classList.add("anime-3")
+            range.style.width = "0%";
+        }
+
+        next.addEventListener("click", nextsong);
+        back.addEventListener("click", prevsong);
+
+        const load = () => {
+            audio_1.play();
+            play.style.display = "none";
+            pause.style.display = "block";
+            image.classList.add("anime-3");
+            range.style.width = "0%";
+        }
+
+        no_love.addEventListener('click' , () => {
+            loadsongs(songs[0]);
+            load();
+        })
+        paro.addEventListener('click' , () => {
+            loadsongs(songs[1]);
+            load();
+        })
+        hey_mama.addEventListener('click' , () => {
+            loadsongs(songs[2]);
+            load();
+        })
+        unstoppable.addEventListener('click' , () => {
+            loadsongs(songs[3]);
+            load();
+        })
+
+
+
+
+    </script>
+
+</body>
+</html>
